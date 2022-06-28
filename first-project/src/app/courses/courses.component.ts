@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CoursesService } from './courses.service';
+
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -9,10 +11,12 @@ export class CoursesComponent implements OnInit {
 
   portalName: string;
 
-  courses: string[] = ['Java', 'Ext JS', 'Angular'];
+  courses: string[];
 
-  constructor() {
+  constructor(private coursesService: CoursesService) {
     this.portalName = 'https://loiane.training';
+
+    this.courses = this.coursesService.getCursos(); //didn't needed provider for some reason
    }
 
   ngOnInit(): void {
