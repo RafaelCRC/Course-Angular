@@ -1,6 +1,6 @@
 <section class="property-binding">
 
-  <article>
+  <!--<article>
     <h3>Interpolation</h3>
     <p>Rendered string with interpolation: {{ url }}</p>
     <p>Result of 1 + 1 is: {{ 1 + 1 }}</p>
@@ -13,6 +13,49 @@
     <img src="{{ imageUrl }}" alt="kitty">
     <img [src]="imageUrl" alt="kitty">
     <img bind-src="imageUrl" alt="kitty">
+  </article>-->
+
+  <article>
+    <h3>Class and Style Binging</h3>
+    <div>
+      Select a class:
+      <select #class (change)="0">
+        <option value="alert-success">Success</option>
+        <option value="alert-info">Info</option>
+        <option value="alert-warning">Warning</option>
+        <option value="alert-danger">Danger</option>
+      </select>
+      <br><br>
+
+      <div class="alert {{ class.value }}">
+        Coloured text by comobox value
+      </div>
+
+      <div class="alert" role="alert"
+        [class.alert-success]="class.value == 'alert-success'">
+        Success
+      </div>
+
+      <div class="alert" role="alert"
+        [class.alert-info]="class.value == 'alert-info'">
+        Info
+      </div>
+
+      <div class="alert" role="alert"
+      [class.alert-warning]="class.value == 'alert-warning'">
+        Warning
+      </div>
+
+      <div class="alert" role="alert"
+      [class.alert-danger]="class.value == 'alert-danger'">
+        Danger
+      </div>
+
+      <div class="alert alert-danger" role="alert"
+        [style.display]="class.value == 'alert-danger' ? 'block' : 'none'">
+        Only if danger
+      </div>
+    </div>
   </article>
 
 </section>
