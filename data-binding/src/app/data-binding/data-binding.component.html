@@ -13,7 +13,7 @@
     <img src="{{ imageUrl }}" alt="kitty">
     <img [src]="imageUrl" alt="kitty">
     <img bind-src="imageUrl" alt="kitty">
-  </article>-->
+  </article>
 
   <article>
     <h3>Class and Style Binging</h3>
@@ -55,6 +55,36 @@
         [style.display]="class.value == 'alert-danger' ? 'block' : 'none'">
         Only if danger
       </div>
+    </div>
+  </article>-->
+
+  <article>
+    <h3>Event Biding</h3>
+    <div>
+      <button (click)="clickedButton()"
+      class="btn btn-primary">
+        Click me!
+      </button>
+
+      <br><br>
+
+      <input type="text"
+      (keyup)="onKeyUp($event)"
+      (keyup.enter)="saveValue(fieldInput.value)"
+      (blur)="saveValue(fieldInput.value)"
+      #fieldInput/>
+
+      <p>Actual Value: {{ actualValue }}</p>
+      <p>Saved Value: {{ savedValue }}</p>
+
+      <br><br>
+      <span
+      (mouseover)="onMouseOverOut()"
+      (mouseout)="onMouseOverOut()"
+      [class.highlight]="isMouseOver"
+      >
+      Hover the mouse over here
+      </span>
     </div>
   </article>
 
